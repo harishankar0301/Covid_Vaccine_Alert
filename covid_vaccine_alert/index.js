@@ -2,7 +2,7 @@ module.exports = async function (context, myTimer) {
 
     require('dotenv').config()
     let date = new Date();
-    dateIN = date.getDate() + "-0" + (date.getMonth() + 1) + "-" + date.getUTCFullYear();
+    dateIN = String(date.getDate()).padStart(2, '0') + "-0" + (date.getMonth() + 1) + "-" + date.getUTCFullYear();
     var request = require('request');
     var options = {
       'method': 'GET',
