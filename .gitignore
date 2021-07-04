@@ -92,10 +92,6 @@ bin
 obj
 appsettings.json
 local.settings.json
-Vaccine-alert-BLR/function.json
-Vaccine-alert-BLR/index.js
-Vaccine-alert-BLR/readme.md
-Vaccine-alert-BLR/sample.dat
 
 .vscode
 

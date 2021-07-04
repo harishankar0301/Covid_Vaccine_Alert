@@ -2,11 +2,11 @@ module.exports = async function (context, myTimer) {
 
     require('dotenv').config()
     let date = new Date();
-    dateIN = String(date.getDate()).padStart(2, '0') + "-0" + (date.getMonth() + 1) + "-" + date.getUTCFullYear();
+    dateformatted = String(date.getDate()).padStart(2, '0') + "-0" + (date.getMonth() + 1) + "-" + date.getUTCFullYear();
     var request = require('request');
     var options = {
       'method': 'GET',
-     'url': `https://cdn-api.co-vin.in/api/v2/appointment/sessions/calendarByDistrict?district_id=571&date=${dateIN}`,
+     'url': `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/calendarByDistrict?district_id=571&date=${dateformatted}`,
         //'url': 'http://localhost:3000',
 
       'headers': {
@@ -27,17 +27,17 @@ module.exports = async function (context, myTimer) {
             catch(ex) {
                 console.log(ex); 
             }
-            let message = "Vaccines for 18-44 Dose 1:\n";
+            let message = "Vaccines for 18-44:\n";
             let flag = 0;
             resjson['centers'].forEach(center => {
                 let tmpsession = "";
                 center['sessions'].forEach(session => {
                 
-                if (session["available_capacity_dose1"] > 2 && session["min_age_limit"] == 18) {
+                    if ((session["available_capacity_dose1"] > 5 || session["available_capacity_dose2"] > 5) && session["min_age_limit"] == 18) {
                     flag = 1;
                     tmpsession+=`${session["date"]}   `
                     tmpsession += `${session["vaccine"]}`
-                    tmpsession += `  Slots: ${session["available_capacity_dose1"]}`
+                        tmpsession += `  Slots: (Dose1: ${session["available_capacity_dose1"]}, Dose2: ${session["available_capacity_dose2"]}`
                     tmpsession += '\n';
 
                 }
