@@ -7,7 +7,7 @@ This is a timer-triggered Azure function. It needs Azure functions runtime to ru
 The data is sourced from CoWin public APIs (https://apisetu.gov.in/public/marketplace/api/cowin).
 
 # Preview
-<img height="500" src="https://github.com/harishankar0301/Covid_Vaccine_Alert/blob/master/vaccine_alert.jpg"></img>
+<img height="500" src="https://github.com/harishankar0301/Covid_Vaccine_Alert/blob/master/vaccine_alerter.jpg"></img>
 # Configurations
 <ul>
 <li>The district id in the API call can be changed to the desired district.</li>
