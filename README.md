@@ -28,4 +28,6 @@ Before the first usage please run `npm install`. To start the function use the c
 <li>The district id in the API call can be changed to the desired district.</li>
 <li>The function by default is configured to run every minute to check vaccine slots. The CRON expression can be changed in function.json file to set the required frequency.</li>
 <li>Telegram chat ID and Telegram bot ID need to be specified in the .env file. They can also be given as Application settings in Azure.</li>
+</ul>
 
+Thanks for stopping by!
