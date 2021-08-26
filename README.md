@@ -20,6 +20,9 @@ Telegram channel link: [Vaccine_Alert_Chennai](https://telegram.me/vaccinealert1
   <li>Telegram APIs, Telegram Bot</li>
 </ul>
 
+# Quick Start
+
+Before the first usage please run `npm install`. To start the function use the command `npm run start`.
 # Configurations
 <ul>
 <li>The district id in the API call can be changed to the desired district.</li>
