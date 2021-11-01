@@ -2,7 +2,7 @@ module.exports = async function (context, myTimer) {
 
     require('dotenv').config()
     let date = new Date();
-    dateformatted = String(date.getDate()).padStart(2, '0') + "-0" + (date.getMonth() + 1) + "-" + date.getUTCFullYear();
+    dateformatted = String(date.getDate()).padStart(2, '0') + "-" + String(date.getMonth()+1).padStart(2, '0') + "-" + date.getUTCFullYear();
     var request = require('request');
     var options = {
       'method': 'GET',
@@ -42,7 +42,7 @@ module.exports = async function (context, myTimer) {
 
                 }
                 })
-                if (tmpsession.length > 2) {
+                if (tmpsession.length > 2 && message.length < 3300) {
                     message += "\n";
                     message += center["name"] + " " + center["block_name"] + "  " + "("+ center["fee_type"] + ")";
                     message += '\n';
@@ -56,6 +56,7 @@ module.exports = async function (context, myTimer) {
                 message += "\n";
                 message += "Please use CoWin site to book: https://selfregistration.cowin.gov.in";
                 console.log(message);
+                console.log(message.length);
                 request({
                     'method': 'GET',
                     'url': `https://api.telegram.org/bot${process.env.BOT}/sendMessage?chat_id=${process.env.CHAT}&text=${message}
@@ -63,6 +64,8 @@ module.exports = async function (context, myTimer) {
                     'headers': {
                     }
                 }, function (error, response) {
+                    console.log(response.body);
+                    console.log(error);
             
                 });
                 console.log("*****************************************************************************")
